@@ -1,1 +1,1 @@
-# Hello react typescript
+# Parallax component
