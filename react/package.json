@@ -12,7 +12,8 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^16.8.6",
-    "react-intl": "^2.9.0"
+    "react-intl": "^2.9.0",
+    "react-parallax": "^3.1.2"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.8",
@@ -28,6 +29,6 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
     "tslint-react-hooks": "^2.2.1",
-    "typescript": "3.8.3"
+    "typescript": "3.9.7"
   }
 }

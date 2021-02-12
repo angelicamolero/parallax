@@ -1,6 +1,6 @@
 {
-  "name": "hello-react-ts",
-  "vendor": "vtex",
+  "name": "parallax",
+  "vendor": "tekpro",
   "version": "0.0.0",
   "vtex-version": "0.0.0",
   "builders": {
@@ -8,8 +8,8 @@
     "store": "0.x",
     "messages": "1.x"
   },
-  "title": "Hello React",
-  "description": "App for creating a minimal React setup for VTEX IO",
+  "title": "Parallax",
+  "description": "Parallax effect",
   "scripts": {
     "postreleasy": "vtex publish --verbose"
   },
