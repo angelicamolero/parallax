@@ -68,7 +68,7 @@ WithNews.getSchema = ({ schemaName, mode }: NewsProps) => {
               widget: {
                 'ui:widget': 'image-uploader'
               },
-              default: "https://dummyimage.com/1920x600/eee/000"
+              default: "https://dummyimage.com/1920x700/eee/000"
             },
             imageMobile: {
               title: "Imagen para mobile",

@@ -39,9 +39,11 @@ const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, para
           <button className={Style.newsFooterButton}>{buttonLabel}</button>
         </div>
       </Parallax> :
-        <div className={Style.newsImageContainer} style={{ backgroundImage: "url(" + i + ")" }}>
-          <div className={Style.newsImageTitle} style={{ color: titleColor }}>{__editorItemTitle}</div>
-          <button className={Style.newsFooterButton}>{buttonLabel}</button>
+        <div className={classes} style={{ backgroundImage: "url(" + i + ")" }}>
+          <div className={Style.newsImageTitle} style={{ color: titleColor }}>
+            {__editorItemTitle}
+            <button className={Style.newsFooterButton}>{buttonLabel}</button>
+          </div>
         </div>
     }
   </div>
