@@ -16,13 +16,5 @@
   "dependencies": {
     "vtex.store": "2.x"
   },
-  "billingOptions": {
-    "free": true,
-    "termsURL": "https://url.to.the/terms",
-    "type": "free",
-    "availableCountries": [
-      "*"
-    ]
-  },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
