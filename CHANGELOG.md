@@ -7,14 +7,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [1.0.1] - 2021-01-16
+## [0.2.0] - 2021-03-1
+### Change
+- rollback major for remove billing option
+
+## [1.0.1] - 2021-02-16
 ### Fixed
 - Fix parallax image, change resolution
 
-## [1.0.0] - 2021-01-12
+## [1.0.1] - 2021-02-16
+### Fixed
+- Fix parallax image, change resolution
+
+## [1.0.0] - 2021-02-12
 ### Fixed
 - Add billing option
 
-## [0.1.0] - 2021-01-12
+## [0.1.0] - 2021-02-12
 ### Added
 - Add parallax component
