@@ -1,0 +1,49 @@
+.SlideRender {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+}
+
+.SlideHtmlRenderContent {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.SlideDefaultRenderContent {
+    max-width: 400px;
+}
+.SlideDefaultRenderTitle {}
+.SlideDefaultRenderSubTitle {}
+.SlideDefaultRenderText {}
+.SlideDefaultRenderButton {}
+
+/**
+Button position
+*/
+.SlideDefaultNewsFlexTop {
+    align-items: flex-start;
+}
+
+.SlideDefaultNewsFlexMiddle {
+    align-items: center;
+}
+
+.SlideDefaultNewsFlexBottom {
+    align-items: flex-end;
+}
+
+.SlideDefaultNewsFlexStart {
+    justify-content: flex-start; 
+}
+
+.SlideDefaultNewsFlexCenter {
+    justify-content: center;
+}
+
+.SlideDefaultNewsFlexEnd {
+    justify-content: flex-end;
+}

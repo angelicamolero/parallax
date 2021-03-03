@@ -3813,6 +3813,11 @@ react-apollo@^2.5.2:
     ts-invariant "^0.4.2"
     tslib "^1.9.3"
 
+react-dangerous-html@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-dangerous-html/-/react-dangerous-html-1.0.0.tgz#24e443d156a4fc5e61467179cda319145aa3a7e1"
+  integrity sha512-OMi5HF1WN7nw/djRHepn9yIMYRafAg3FlBdXgh6bdvq/hnZ/p0fMHyL77o7uM9xctEu9t1p2qMSf2yOmPNrlVw==
+
 react-dom@^16.8.4:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"

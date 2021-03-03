@@ -1,7 +1,7 @@
 {
   "name": "parallax",
   "vendor": "tekpro",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "vtex-version": "0.0.0",
   "builders": {
     "react": "3.x",
@@ -14,7 +14,8 @@
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
-    "vtex.store": "2.x"
+    "vtex.store": "2.x",
+    "vtex.slider-layout": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

@@ -12,6 +12,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^16.8.6",
+    "react-dangerous-html": "^1.0.0",
     "react-intl": "^2.9.0",
     "react-parallax": "^3.1.2"
   },

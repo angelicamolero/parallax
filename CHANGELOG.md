@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.0] - 2021-03-03
+### Added
+- add carousel tekpro
+
 ## [0.2.0] - 2021-03-1
 ### Change
 - rollback major for remove billing option

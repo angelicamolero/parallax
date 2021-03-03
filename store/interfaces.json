@@ -1,5 +1,9 @@
 {
   "tekpro-news": {
     "component": "News"
+  },
+  "tekpro-carousel": {
+    "component": "Carousel",
+    "composition": "children"
   }
 }
