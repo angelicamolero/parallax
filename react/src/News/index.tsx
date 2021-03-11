@@ -18,6 +18,10 @@ WithNews.getSchema = ({ schemaName, mode }: NewsProps) => {
     title: schemaName || 'Noticias',
     type: "object",
     properties: {
+      title: {
+        title: 'Título seccion',
+        type: 'string'
+      },
       news: {
         minItems: 0,
         title: 'Noticias',

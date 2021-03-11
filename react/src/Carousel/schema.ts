@@ -69,7 +69,7 @@ export const contentSchema = {
     default: "Center-Center"
   },
   contentPositionMobile: {
-    title: "Posición del botón y texto (desktop)",
+    title: "Posición del botón y texto (mobile)",
     type: "string",
     enum: [
       'Top-Left', 'Top-Center', 'Top-Right',

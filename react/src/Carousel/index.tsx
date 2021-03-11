@@ -25,48 +25,50 @@ WithCarousel.defaultProps = {
   slides: []
 }
 
-WithCarousel.schema = {
-  title: "Slider tekpro",
-  type: "object",
-  properties: {
-    height: {
-      title: 'alto en px (desktop)',
-      type: 'number',
-      default: 600
-    },
-    heightMobile: {
-      title: 'alto en px (mobile)',
-      type: 'number',
-      default: 400
-    },
-    slides: {
-      minItems: 0,
-      title: 'Slider',
-      type: 'array',
-      items: {
-        title: 'Slide',
-        type: 'object',
-        properties: {
-          image: {
-            title: 'Imagen',
-            type: 'string',
-            widget: {
-              'ui:widget': 'image-uploader'
-            }
-          },
-          imageMobile: {
-            title: 'Imagen mobile',
-            type: 'string',
-            widget: {
-              'ui:widget': 'image-uploader'
-            }
-          },
-          useHtml: {
-            title: 'usar html',
-            type: 'boolean'
-          },
-          ...htmlSchema,
-          ...contentSchema
+WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
+  return {
+    title: schemaName || "Slider tekpro",
+    type: "object",
+    properties: {
+      height: {
+        title: 'alto en px (desktop)',
+        type: 'number',
+        default: 600
+      },
+      heightMobile: {
+        title: 'alto en px (mobile)',
+        type: 'number',
+        default: 400
+      },
+      slides: {
+        minItems: 0,
+        title: 'Slider',
+        type: 'array',
+        items: {
+          title: 'Slide',
+          type: 'object',
+          properties: {
+            image: {
+              title: 'Imagen',
+              type: 'string',
+              widget: {
+                'ui:widget': 'image-uploader'
+              }
+            },
+            imageMobile: {
+              title: 'Imagen mobile',
+              type: 'string',
+              widget: {
+                'ui:widget': 'image-uploader'
+              }
+            },
+            useHtml: {
+              title: 'usar html',
+              type: 'boolean'
+            },
+            ...htmlSchema,
+            ...contentSchema
+          }
         }
       }
     }

@@ -13,7 +13,8 @@ export interface INews {
   buttonPositionMobile: string;
 }
 
-export interface NewsProps { 
+export interface NewsProps {
+  title?: string;
   news: INews[];
   isMobile: boolean;
   mode: 'into' | 'out';

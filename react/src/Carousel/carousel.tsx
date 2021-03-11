@@ -2,9 +2,14 @@ import { WithCarouselProps } from './interfaces';
 import HtmlRender from './components/htmlRender';
 import DefaultRender from './components/defaultRender';
 import SliderLayout from 'vtex.slider-layout/SliderLayout';
+import classNames from 'classnames';
+import Style from './carousel.css';
 
-const Carousel = ({ slides, height, heightMobile, sliderLayoutProps, isMobile, goToPage }: WithCarouselProps) => {
-  return <div>
+const Carousel = ({ slides, height, heightMobile, sliderLayoutProps, isMobile, goToPage, blockClass }: WithCarouselProps) => {
+
+  const classes = classNames(Style.tekproCarouselContainer, Style.tekproCarouselContainer + '--' + blockClass);
+
+  return <div className={classes}>
     <SliderLayout {...sliderLayoutProps}>
       {slides.map((slide, index) => {
         const image = isMobile ? slide.imageMobile : slide.image;

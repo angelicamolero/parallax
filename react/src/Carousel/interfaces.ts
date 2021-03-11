@@ -29,6 +29,8 @@ export interface WithCarouselProps {
   sliderLayoutProps: any;
   isMobile: boolean;
   goToPage: (url: string) => void;
+  blockClass?: string;
+  schemaName?: string;
 }
 
 export interface HtmlRenderProps {
