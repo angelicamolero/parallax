@@ -24,10 +24,10 @@ const DefaultRender = ({ height, image, title, subTitle, text, button, contentPo
 
   return <div className={classes} style={{ backgroundImage: 'url(' + image + ')', height }}>
     <div className={Style.SlideDefaultRenderContent}>
-      <h1 className={Style.SlideDefaultRenderTitle} style={{ color: title?.titleColor }}>{title?.title}</h1>
-      <div className={Style.SlideDefaultRenderSubTitle} style={{ color: subTitle?.titleColor }}>{subTitle?.title}</div>
-      <p className={Style.SlideDefaultRenderText} style={{ color: text?.titleColor }}>{text?.title}</p>
-      <button onClick={() => goToPage(button?.url || '')} className={Style.SlideDefaultRenderButton} style={{ color: button?.titleColor, background: button?.background }}>{button?.title}</button>
+      {title?.title && <h1 className={Style.SlideDefaultRenderTitle} style={{ color: title?.titleColor }}>{title?.title}</h1>}
+      {subTitle?.title && <div className={Style.SlideDefaultRenderSubTitle} style={{ color: subTitle?.titleColor }}>{subTitle?.title}</div>}
+      {text?.title && <p className={Style.SlideDefaultRenderText} style={{ color: text?.titleColor }}>{text?.title}</p>}
+      {button?.title && <button onClick={() => goToPage(button?.url || '')} className={Style.SlideDefaultRenderButton} style={{ color: button?.titleColor, background: button?.background }}>{button?.title}</button>}
     </div>
   </div>
 }
