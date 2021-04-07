@@ -55,7 +55,13 @@ export const contentSchema = {
     title: 'Texto',
     type: 'object',
     properties: {
-      ...TITLE("Botón del slide", true, true)
+      ...TITLE("Botón del slide", true, true),
+      isTransparent: {
+        title: 'Fondo transparente',
+        type: 'boolean',
+        default: false,
+        description: 'Si se usa el fondo transparente, el campo Fondo del botón, solo afectará el borde del botón'
+      }
     }
   },
   contentPosition: {

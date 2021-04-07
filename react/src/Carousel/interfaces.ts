@@ -9,6 +9,10 @@ export interface titleBase {
   background?: string;
 }
 
+export interface buttonBase extends titleBase {
+  isTransparent: boolean;
+}
+
 export interface SlidesProps { 
   image: string;
   imageMobile: string;
@@ -17,7 +21,7 @@ export interface SlidesProps {
   title?: titleBase;
   subTitle?: titleBase;
   text?: titleBase;
-  button?: titleBase;
+  button?: buttonBase;
   contentPosition?: contentPosition;
   contentPositionMobile?: contentPosition;
 }

@@ -19,7 +19,8 @@ const DefaultRender = ({ height, image, title, subTitle, text, button, contentPo
   const classes = classnames(
     Style.SlideRender,
     CLASSES_Y[contentPosition.split("-")[0]],
-    CLASSES_X[contentPosition.split("-")[1]]
+    CLASSES_X[contentPosition.split("-")[1]],
+    Style.defaultContentRender
   );
 
   return <div className={classes} style={{ backgroundImage: 'url(' + image + ')', height }}>
@@ -27,7 +28,7 @@ const DefaultRender = ({ height, image, title, subTitle, text, button, contentPo
       {title?.title && <h1 className={Style.SlideDefaultRenderTitle} style={{ color: title?.titleColor }}>{title?.title}</h1>}
       {subTitle?.title && <div className={Style.SlideDefaultRenderSubTitle} style={{ color: subTitle?.titleColor }}>{subTitle?.title}</div>}
       {text?.title && <p className={Style.SlideDefaultRenderText} style={{ color: text?.titleColor }}>{text?.title}</p>}
-      {button?.title && <button onClick={() => goToPage(button?.url || '')} className={Style.SlideDefaultRenderButton} style={{ color: button?.titleColor, background: button?.background }}>{button?.title}</button>}
+      {button?.title && <button onClick={() => goToPage(button?.url || '')} className={Style.SlideDefaultRenderButton} style={{ color: button?.titleColor, background: button?.isTransparent ? 'transparent': button?.background, border: button?.isTransparent && `1px solid ${button?.background}` }}>{button?.title}</button>}
     </div>
   </div>
 }
