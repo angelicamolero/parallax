@@ -3,7 +3,7 @@ import Style from '../news.css';
 import { Parallax } from 'react-parallax';
 import { INews } from '../interfaces';
 
-const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, parallax, isMobile, imageMobile }: INews) => {
+const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, parallax, isMobile, imageMobile, url, goToPage }: INews) => {
 
   const i = isMobile ? imageMobile : image;
 
@@ -20,7 +20,7 @@ const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, para
         </div>
     }
     <div className={Style.newsFooter}>
-      <button className={Style.newsFooterButton}>{buttonLabel}</button>
+      <button className={Style.newsFooterButton} onClick={() => goToPage(url)}>{buttonLabel}</button>
     </div>
   </div>
 }

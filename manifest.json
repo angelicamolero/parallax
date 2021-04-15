@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "vtex.store": "2.x",
-    "vtex.slider-layout": "0.x"
+    "vtex.slider-layout": "0.x",
+    "vtex.store-video": "1.x",
+    "tekpro.store-icons": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

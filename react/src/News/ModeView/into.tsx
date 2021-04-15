@@ -16,7 +16,7 @@ const CLASSES_X = {
     Right: Style.newsFlexEnd,
 }
 
-const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, parallax, isMobile, imageMobile, buttonPosition, buttonPositionMobile }: INews) => {
+const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, parallax, isMobile, imageMobile, buttonPosition, buttonPositionMobile, url, goToPage   }: INews) => {
 
   const i = isMobile ? imageMobile : image;
   const classes = classnames(
@@ -42,7 +42,7 @@ const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, para
         <div className={classes} style={{ backgroundImage: "url(" + i + ")" }}>
           <div className={Style.newsImageTitle} style={{ color: titleColor }}>
             {__editorItemTitle}
-            <button className={Style.newsFooterButton}>{buttonLabel}</button>
+            <button className={Style.newsFooterButton} onClick={() => goToPage(url)}>{buttonLabel}</button>
           </div>
         </div>
     }

@@ -24,6 +24,14 @@ export const TITLE = (name: string, urlProps: boolean = false, showBackgrund: bo
         widget: {
           'ui:widget': 'color'
         }
+      },
+      icon: {
+        title: 'ícono del ' + name,
+        type: 'string'
+      },
+      baseIcon: {
+        title: 'Base ícono del ' + name,
+        type: 'string'
       }
     } : {}
   }

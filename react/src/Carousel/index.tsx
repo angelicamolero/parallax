@@ -48,6 +48,16 @@ WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
           title: 'Slide',
           type: 'object',
           properties: {
+            useVideo: {
+              title: 'Usar video',
+              type: 'boolean',
+              default: false
+            },
+            videoLink: {
+              title: 'Link video',
+              type: 'string',
+              description: "Al cargar un video, se recomienda tambien cargar imagenes, esta se motrará mientras se carga el video"
+            },
             image: {
               title: 'Imagen',
               type: 'string',
@@ -61,6 +71,18 @@ WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
               widget: {
                 'ui:widget': 'image-uploader'
               }
+            },
+            contentGeneralPosition: {
+              title: 'Posición del contenido',
+              type: 'string',
+              enum: [
+                'top',
+                'center',
+                'bottom',
+                'left',
+                'right'
+              ],
+              description: 'center'
             },
             useHtml: {
               title: 'usar html',

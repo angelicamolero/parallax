@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import News from './news';
 import { NewsProps } from './interfaces';
 import { useRuntime } from 'vtex.render-runtime';
@@ -6,7 +6,12 @@ import { useRuntime } from 'vtex.render-runtime';
 const WithNews = (props: NewsProps) => {
   const RuntimeContext = useRuntime();
   const isMobile = RuntimeContext?.deviceInfo?.isMobile;
-  return <News {...props} isMobile={isMobile} />
+
+  const goToPage = useCallback((url: string) => {
+    window.location.href = url;
+  }, []);
+
+  return <News {...props} isMobile={isMobile} goToPage={goToPage}/>
 }
 
 WithNews.defaultProps = {
