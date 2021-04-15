@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { Suspense, Fragment, useMemo } from 'react';
 import News from './news';
 import { NewsProps } from './interfaces';
-import { useRuntime } from 'vtex.render-runtime';
+import { useRuntime, NoSSR } from 'vtex.render-runtime';
 
 const WithNews = (props: NewsProps) => {
   const RuntimeContext = useRuntime();
   const isMobile = RuntimeContext?.deviceInfo?.isMobile;
-  return <News {...props} isMobile={isMobile} />
+  return useMemo(() => 
+    <NoSSR>
+      <Suspense fallback={<Fragment/>}>
+        <News {...props} isMobile={isMobile} />
+      </Suspense>
+    </NoSSR>
+  , [props, isMobile]);
 }
 
 WithNews.defaultProps = {
-  mode: 'out'
+  mode: 'out',
+  useBackground: false
 }
 
 WithNews.getSchema = ({ schemaName, mode }: NewsProps) => {
@@ -18,6 +25,11 @@ WithNews.getSchema = ({ schemaName, mode }: NewsProps) => {
     title: schemaName || 'Noticias',
     type: "object",
     properties: {
+      useBackground: {
+        title: 'Usar imagen como background',
+        type: 'boolean',
+        default: true
+      },
       title: {
         title: 'Título seccion',
         type: 'string'

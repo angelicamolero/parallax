@@ -14,7 +14,7 @@ const CLASSES_X = {
     Right: Style.SlideDefaultNewsFlexEnd,
 }
 
-const DefaultRender = ({ height, image, title, subTitle, text, button, contentPosition, goToPage }: DefaultRenderProps) => {
+const DefaultRender = ({ height, image, title, subTitle, text, button, contentPosition, goToPage, useBackground }: DefaultRenderProps) => {
 
   const classes = classnames(
     Style.SlideRender,
@@ -23,7 +23,9 @@ const DefaultRender = ({ height, image, title, subTitle, text, button, contentPo
     Style.defaultContentRender
   );
 
-  return <div className={classes} style={{ backgroundImage: 'url(' + image + ')', height }}>
+  return <>
+  {!useBackground && <img src={image}/>}
+  <div className={classes} style={{ backgroundImage: useBackground && 'url(' + image + ')', height: useBackground && height, position: !useBackground ? 'absolute' : null }}>
     <div className={Style.SlideDefaultRenderContent}>
       {title?.title && <h1 className={Style.SlideDefaultRenderTitle} style={{ color: title?.titleColor }}>{title?.title}</h1>}
       {subTitle?.title && <div className={Style.SlideDefaultRenderSubTitle} style={{ color: subTitle?.titleColor }}>{subTitle?.title}</div>}
@@ -31,6 +33,7 @@ const DefaultRender = ({ height, image, title, subTitle, text, button, contentPo
       {button?.title && <button onClick={() => goToPage(button?.url || '')} className={Style.SlideDefaultRenderButton} style={{ color: button?.titleColor, background: button?.isTransparent ? 'transparent': button?.background, border: button?.isTransparent && `1px solid ${button?.background}` }}>{button?.title}</button>}
     </div>
   </div>
+  </>
 }
 
 export default DefaultRender;

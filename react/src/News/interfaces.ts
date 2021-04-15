@@ -11,6 +11,7 @@ export interface INews {
   mode?: 'into' | 'out';
   buttonPosition: string;
   buttonPositionMobile: string;
+  useBackground?: boolean;
 }
 
 export interface NewsProps {
@@ -24,4 +25,5 @@ export interface NewsProps {
   viewModeMobile: number;
   gap: string;
   fr: string;
+  useBackground?: boolean;
 }

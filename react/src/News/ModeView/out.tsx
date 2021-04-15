@@ -3,7 +3,7 @@ import Style from '../news.css';
 import { Parallax } from 'react-parallax';
 import { INews } from '../interfaces';
 
-const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, parallax, isMobile, imageMobile }: INews) => {
+const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, parallax, isMobile, imageMobile, useBackground }: INews) => {
 
   const i = isMobile ? imageMobile : image;
 
