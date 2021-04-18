@@ -10,14 +10,14 @@ const CLASSES_Y = {
 }
 
 const CLASSES_X = {
-    Left: Style.SlideDefaultNewsFlexStart,
-    Center: Style.SlideDefaultNewsFlexCenter,
-    Right: Style.SlideDefaultNewsFlexEnd,
+  Left: Style.SlideDefaultNewsFlexStart,
+  Center: Style.SlideDefaultNewsFlexCenter,
+  Right: Style.SlideDefaultNewsFlexEnd,
 }
 
 const DefaultRender = (props: DefaultRenderProps) => {
 
-  const { height, image, contentPosition,contentGeneralPosition } = props;
+  const { height, image, contentPosition, contentGeneralPosition, useBackground, goToPage } = props;
 
   const classes = classnames(
     Style.SlideRender,
@@ -26,9 +26,12 @@ const DefaultRender = (props: DefaultRenderProps) => {
     Style.defaultContentRender
   );
 
-  return <div className={classes} style={{ backgroundImage: 'url(' + image + ')', height }}>
-    {(!contentGeneralPosition || contentGeneralPosition === 'center') && <ContentRender {...props} />}
-  </div>
+  return <>
+    {!useBackground && <img src={image} />}
+    <div className={classes} style={{ backgroundImage: useBackground && 'url(' + image + ')', height: useBackground && height, position: !useBackground ? 'absolute' : null }}>
+      {(!contentGeneralPosition || contentGeneralPosition === 'center') && <ContentRender  {...props} goToPage={goToPage}/>}
+    </div>
+  </>
 }
 
 export default DefaultRender;

@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.6.0] - 2021-04-18
+### Added
+- Add config carousel
+
+
+## [0.5.0] - 2021-04-15
+### Fixed
+- Fix carousel
+
 ## [0.5.0] - 2021-04-07
 ### Added
 - carousel

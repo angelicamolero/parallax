@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import Style from './carousel.css';
 import RenderContent from './components/contentRender';
 import VideoRender from './components/videoRender';
+import { useMemo } from 'react';
 
 const GENERAL_POSITION = {
   "top": Style.pTop,
@@ -15,12 +16,24 @@ const GENERAL_POSITION = {
   "center": Style.pCenter
 }
 
-const Carousel = ({ slides, height, heightMobile, sliderLayoutProps, isMobile, goToPage, blockClass }: WithCarouselProps) => {
-  
+const Carousel = ({ slides, height, heightMobile, sliderLayoutProps, isMobile, goToPage, blockClass, useBackground, autoplay }: WithCarouselProps) => {
+
   const classes = classNames(Style.tekproCarouselContainer, Style.tekproCarouselContainer + '--' + blockClass);
 
+  const config = useMemo(() => {
+
+    if (autoplay) return {
+      timeout: 5000,
+      stopOnHover: true
+    }
+
+    return null
+  }, [autoplay]);
+
+  console.log("config", config)
+
   return <div className={classes}>
-    <SliderLayout {...sliderLayoutProps}>
+    <SliderLayout {...sliderLayoutProps} autoplay={config}>
       {slides.map((slide, index) => {
         const image = isMobile ? slide.imageMobile : slide.image;
         const heightB = isMobile ? heightMobile : height;
@@ -31,9 +44,9 @@ const Carousel = ({ slides, height, heightMobile, sliderLayoutProps, isMobile, g
           return <HtmlRender key={index} html={slide.html} image={image} height={heightB} />
         }
         return <div className={postionClasses}>
-                {slide.useVideo ? <VideoRender {...slide} image={image} heightB={heightB}/> : <DefaultRender {...slide} image={image} contentPosition={contentPosition} height={heightB} goToPage={goToPage} />}
-                {slide.contentGeneralPosition && slide.contentGeneralPosition !== 'center' && <RenderContent {...slide} goToPage={goToPage}/>}
-              </div>
+          {slide.useVideo ? <VideoRender {...slide} image={image} heightB={heightB} /> : <DefaultRender {...slide} goToPage={goToPage} useBackground={useBackground} image={image} contentPosition={contentPosition} height={heightB}/>}
+          {slide.contentGeneralPosition && slide.contentGeneralPosition !== 'center' && <RenderContent {...slide} goToPage={goToPage} />}
+        </div>
       })}
     </SliderLayout>
   </div>

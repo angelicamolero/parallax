@@ -22,7 +22,9 @@ const WithCarousel = (props: WithCarouselProps) => {
 WithCarousel.defaultProps = {
   height: 600,
   heightMobile: 400,
-  slides: []
+  slides: [],
+  useBackground: true,
+  autoplay: false
 }
 
 WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
@@ -30,6 +32,16 @@ WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
     title: schemaName || "Slider tekpro",
     type: "object",
     properties: {
+      autoplay: {
+        title: "autoplay",
+        type: "boolean",
+        default: false
+      },
+      useBackground: {
+        title: 'Usar imagenes como background',
+        type: 'boolean',
+        default: true
+      },
       height: {
         title: 'alto en px (desktop)',
         type: 'number',

@@ -1,7 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { Suspense, Fragment, useMemo, useCallback } from 'react';
 import News from './news';
 import { NewsProps } from './interfaces';
-import { useRuntime } from 'vtex.render-runtime';
+import { useRuntime, NoSSR } from 'vtex.render-runtime';
 
 const WithNews = (props: NewsProps) => {
   const RuntimeContext = useRuntime();
@@ -10,12 +10,19 @@ const WithNews = (props: NewsProps) => {
   const goToPage = useCallback((url: string) => {
     window.location.href = url;
   }, []);
-
-  return <News {...props} isMobile={isMobile} goToPage={goToPage}/>
+  
+  return useMemo(() => 
+    <NoSSR>
+      <Suspense fallback={<Fragment/>}>
+        <News {...props} isMobile={isMobile} goToPage={goToPage}/>
+      </Suspense>
+    </NoSSR>
+  , [props, isMobile, goToPage]);
 }
 
 WithNews.defaultProps = {
-  mode: 'out'
+  mode: 'out',
+  useBackground: false
 }
 
 WithNews.getSchema = ({ schemaName, mode }: NewsProps) => {
@@ -23,8 +30,25 @@ WithNews.getSchema = ({ schemaName, mode }: NewsProps) => {
     title: schemaName || 'Noticias',
     type: "object",
     properties: {
+      mode: {
+        title: 'modo',
+        type: 'string',
+        enum: [
+          'out',
+          'into'
+        ]
+      },
+      useBackground: {
+        title: 'Usar imagen como background',
+        type: 'boolean',
+        default: true
+      },
       title: {
         title: 'Título seccion',
+        type: 'string'
+      },
+      subTitle: {
+        title: 'SubTítulo seccion',
         type: 'string'
       },
       news: {

@@ -12,10 +12,12 @@ export interface INews {
   buttonPosition: string;
   buttonPositionMobile: string;
   goToPage: (url: string) => void;
+  useBackground?: boolean;
 }
 
 export interface NewsProps {
   title?: string;
+  subTitle?: string;
   news: INews[];
   isMobile: boolean;
   mode: 'into' | 'out';
@@ -26,4 +28,5 @@ export interface NewsProps {
   gap: string;
   fr: string;
   goToPage: (url: string) => void;
+  useBackground?: boolean;
 }

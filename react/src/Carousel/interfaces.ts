@@ -37,6 +37,7 @@ export interface SlidesProps {
   contentGeneralPosition: contentGeneralPosition;
   goToPage?: (url: string) => void;
   heightB?: number;
+  useBackground?: boolean;
 }
 
 export interface WithCarouselProps {
@@ -48,6 +49,8 @@ export interface WithCarouselProps {
   goToPage: (url: string) => void;
   blockClass?: string;
   schemaName?: string;
+  useBackground?: boolean;
+  autoplay?:boolean;
 }
 
 export interface HtmlRenderProps {

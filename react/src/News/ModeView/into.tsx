@@ -16,15 +16,15 @@ const CLASSES_X = {
     Right: Style.newsFlexEnd,
 }
 
-const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, parallax, isMobile, imageMobile, buttonPosition, buttonPositionMobile, url, goToPage   }: INews) => {
+const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, parallax, isMobile, imageMobile, buttonPosition, buttonPositionMobile, useBackground, url, goToPage }: INews) => {
 
   const i = isMobile ? imageMobile : image;
   const classes = classnames(
     Style.newsImageContainer,
     CLASSES_Y[
-    (!isMobile ? buttonPosition : buttonPositionMobile).split("-")[0]],
+    ((!isMobile ? buttonPosition : buttonPositionMobile) || 'Center-Center').split("-")[0]],
     CLASSES_X[
-    (!isMobile ? buttonPosition : buttonPositionMobile).split("-")[1]]
+    ((!isMobile ? buttonPosition : buttonPositionMobile) || 'Center-Center').split("-")[1]]
   );
 
   return <div className={Style.newsContainer} key={key}>
@@ -39,12 +39,15 @@ const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, para
           <button className={Style.newsFooterButton}>{buttonLabel}</button>
         </div>
       </Parallax> :
-        <div className={classes} style={{ backgroundImage: "url(" + i + ")" }}>
+        <>
+        {!useBackground && <img style={{minHeight: '100%'}} src={i}/>}
+        <div className={classes} style={{ backgroundImage: useBackground && "url(" + i + ")", height: !useBackground && '100%', position: !useBackground ? 'absolute' : null, top: !useBackground && 0 }}>
           <div className={Style.newsImageTitle} style={{ color: titleColor }}>
             {__editorItemTitle}
             <button className={Style.newsFooterButton} onClick={() => goToPage(url)}>{buttonLabel}</button>
           </div>
         </div>
+        </>
     }
   </div>
 }
