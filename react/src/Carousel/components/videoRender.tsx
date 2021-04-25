@@ -15,7 +15,7 @@ const VideoRender = ({videoLink, heightB, image}: any) => {
         timmer = setTimeout(() => {
           console.log("VideoRender")
           setPlay(true);
-        }, 500)
+        }, 1000)
       }
 
       return () => {
@@ -43,7 +43,7 @@ const VideoRender = ({videoLink, heightB, image}: any) => {
       }, [ref]);
 
     return <div ref={ref} className={Style.videoContainer} style={{height: heightB}}>
-       {play && videoLink && <Video src={videoLink} poster={image} width="100%" height={heightB} controlsType="custom-vtex"/>}
+       {play && videoLink && <Video src={videoLink} poster={image} width="100%" height={heightB} controlsType="custom-vtex" playsInline={true}/>}
     </div>
 }
 

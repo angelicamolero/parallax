@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.6.1] - 2021-04-25
+### Fixed
+- Fix video component
+
 ## [0.6.0] - 2021-04-18
 ### Added
 - Add config carousel
