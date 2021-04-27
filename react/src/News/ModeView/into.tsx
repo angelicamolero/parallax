@@ -27,7 +27,7 @@ const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, para
     ((!isMobile ? buttonPosition : buttonPositionMobile) || 'Center-Center').split("-")[1]]
   );
 
-  return <div className={Style.newsContainer} key={key}>
+  return <div className={Style.newsContainer} key={key} style={{height: !useBackground ? 'initial' : null}}>
     {
       parallax ? <Parallax
         bgImage={isMobile ? imageMobile : image}
@@ -40,7 +40,7 @@ const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, para
         </div>
       </Parallax> :
         <>
-        {!useBackground && <img style={{minHeight: '100%'}} src={i}/>}
+        {!useBackground && <img className={Style.newImagen} style={{minHeight: '100%'}} src={i}/>}
         <div className={classes} style={{ backgroundImage: useBackground && "url(" + i + ")", height: !useBackground && '100%', position: !useBackground ? 'absolute' : null, top: !useBackground && 0 }}>
           <div className={Style.newsImageTitle} style={{ color: titleColor }}>
             {__editorItemTitle}

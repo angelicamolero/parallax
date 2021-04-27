@@ -1,7 +1,7 @@
 {
   "name": "parallax",
   "vendor": "tekpro",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "vtex-version": "0.0.0",
   "builders": {
     "react": "3.x",

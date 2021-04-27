@@ -27,7 +27,7 @@ const DefaultRender = (props: DefaultRenderProps) => {
   );
 
   return <>
-    {!useBackground && <img src={image} />}
+    {!useBackground && <img className={Style.imageCarousel} src={image} />}
     <div className={classes} style={{ backgroundImage: useBackground && 'url(' + image + ')', height: useBackground && height, position: !useBackground ? 'absolute' : null }}>
       {(!contentGeneralPosition || contentGeneralPosition === 'center') && <ContentRender  {...props} goToPage={goToPage}/>}
     </div>
