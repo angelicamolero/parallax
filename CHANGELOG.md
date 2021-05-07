@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.6.3] - 2021-05-07
+### Fixed
+- Go to page
+
 ## [0.6.2] - 2021-04-27
 ### Fixed
 - Add class image

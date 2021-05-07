@@ -36,7 +36,7 @@ const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, para
       >
         <div className={Style.newsImageTitle} style={{ color: titleColor }}>
           {__editorItemTitle}
-          <button className={Style.newsFooterButton}>{buttonLabel}</button>
+          <button className={Style.newsFooterButton} onClick={() => goToPage(url)}>{buttonLabel}</button>
         </div>
       </Parallax> :
         <>

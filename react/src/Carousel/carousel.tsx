@@ -16,7 +16,7 @@ const GENERAL_POSITION = {
   "center": Style.pCenter
 }
 
-const Carousel = ({ slides, height, heightMobile, sliderLayoutProps, isMobile, goToPage, blockClass, useBackground, autoplay }: WithCarouselProps) => {
+const Carousel = ({ slides, height, heightMobile, sliderLayoutProps, isMobile, goToPage, blockClass, useBackground, autoplay, itemsPerPage }: WithCarouselProps) => {
 
   const classes = classNames(Style.tekproCarouselContainer, Style.tekproCarouselContainer + '--' + blockClass);
 
@@ -30,10 +30,8 @@ const Carousel = ({ slides, height, heightMobile, sliderLayoutProps, isMobile, g
     return null
   }, [autoplay]);
 
-  console.log("config", config)
-
   return <div className={classes}>
-    <SliderLayout {...sliderLayoutProps} autoplay={config}>
+    <SliderLayout {...sliderLayoutProps} autoplay={config} itemsPerPage={itemsPerPage}>
       {slides.map((slide, index) => {
         const image = isMobile ? slide.imageMobile : slide.image;
         const heightB = isMobile ? heightMobile : height;

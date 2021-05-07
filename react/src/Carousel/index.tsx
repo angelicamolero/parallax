@@ -24,7 +24,12 @@ WithCarousel.defaultProps = {
   heightMobile: 400,
   slides: [],
   useBackground: true,
-  autoplay: false
+  autoplay: false,
+  itemsPerPage: {
+    desktop: 1,
+    tablet: 1,
+    phone: 1
+  }
 }
 
 WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
@@ -102,6 +107,27 @@ WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
             },
             ...htmlSchema,
             ...contentSchema
+          }
+        }
+      },
+      itemsPerPage: {
+        title: 'items por páginas',
+        type: 'object',
+        properties: {
+          desktop: {
+            title: 'Items para desktop',
+            type: 'number',
+            default: 1
+          },
+          tablet: {
+            title: 'Items para tablet',
+            type: 'number',
+            default: 1
+          },
+          phone: {
+            title: 'Items para phone',
+            type: 'number',
+            default: 1
           }
         }
       }

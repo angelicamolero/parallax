@@ -40,6 +40,12 @@ export interface SlidesProps {
   useBackground?: boolean;
 }
 
+export interface IItemsPerPage {
+  desktop: number;
+  tablet: number;
+  phone: number;
+}
+
 export interface WithCarouselProps {
   height: number;
   heightMobile: number;
@@ -51,6 +57,7 @@ export interface WithCarouselProps {
   schemaName?: string;
   useBackground?: boolean;
   autoplay?:boolean;
+  itemsPerPage: IItemsPerPage
 }
 
 export interface HtmlRenderProps {
