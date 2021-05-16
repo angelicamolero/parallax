@@ -9,12 +9,12 @@ enum aling {
     right= 'flex-end'
 }
 
-const ContentRender = ({ title, subTitle, text, button, goToPage, contentAlign }: SlidesProps) => {
+const ContentRender = ({ title, subTitle, text, button, goToPage, contentAlign, contentGeneralPosition }: SlidesProps) => {
 
     const classesButton = classNames(Style.SlideDefaultRenderButton, button?.isTransparent && Style.buttonTransparent)
 
     return (
-        <div className={Style.SlideDefaultRenderContent} style={{textAlign: contentAlign, justifyContent: aling[contentAlign]}}>
+        <div className={Style.SlideDefaultRenderContent} style={{textAlign: contentAlign, justifyContent: contentGeneralPosition !== 'left' && contentGeneralPosition !== 'right' && aling[contentAlign], alignItems: (contentGeneralPosition === 'left' || contentGeneralPosition === 'right') && aling[contentAlign]}}>
         {title?.title && <h1 className={Style.SlideDefaultRenderTitle} style={{ color: title?.titleColor }}>{title?.title}</h1>}
         {subTitle?.title && <div className={Style.SlideDefaultRenderSubTitle} style={{ color: subTitle?.titleColor }}>{subTitle?.title}</div>}
         {text?.title && <p className={Style.SlideDefaultRenderText} style={{ color: text?.titleColor }}>{text?.title}</p>}

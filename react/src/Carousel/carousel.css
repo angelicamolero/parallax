@@ -200,7 +200,9 @@ Button position
 
 .buttonTransparent {}
 
-.imageCarousel {}
+.imageCarousel {
+    width: 100%;
+}
 
 video.videoIframe {
     height: auto !important;
@@ -360,4 +362,5 @@ video.videoIframe {
 .SlideDefaultRenderButton {
     display: flex;
     align-items: center;
+    justify-content: center !important;
 }
