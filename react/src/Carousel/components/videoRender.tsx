@@ -1,35 +1,17 @@
 import { useState, useRef, useEffect } from 'react';
-import Video from 'vtex.store-video/Video';
+import Video from 'tekpro.store-video/Video';
 import Style from '../carousel.css';
+import Icon from 'tekpro.store-icons/Icons';
 
-const VideoRender = ({videoLink, heightB, image}: any) => {
+const VideoRender = ({videoLink, image}: any) => {
 
     const ref = useRef(null);
     const [play, setPlay] = useState(false);
 
     useEffect(() => {
-
-      let timmer: any = setTimeout(() => {})
-
-      if (!play) {
-        timmer = setTimeout(() => {
-          console.log("VideoRender")
-          setPlay(true);
-        }, 1000)
-      }
-
-      return () => {
-        clearTimeout(timmer);
-      }
-    }, [])
-
-    useEffect(() => {
         function handleClickOutside(event: any) {
           if (ref.current && !ref.current.contains(event.target)) {
-            const element:any = document.getElementsByClassName('tekpro-parallax-0-x-pauseIcon')[0];
-            if (element) {
-                element?.parentElement?.click();                
-            }
+            setPlay(false);
           }
         }
     
@@ -42,8 +24,12 @@ const VideoRender = ({videoLink, heightB, image}: any) => {
         };
       }, [ref]);
 
-    return <div ref={ref} className={Style.videoContainer} style={{height: heightB}}>
-       {play && videoLink && <Video src={videoLink} poster={image} width="100%" height={heightB} controlsType="custom-vtex" playsInline={true}/>}
+    return <div ref={ref} className={Style.videoContainer}>
+       {play && <Video autoPlay={true} src={videoLink} blockClass={Style.videoContainerVtex} width="100%" controlsType="custom-vtex" loop={true} poster={image} playsInline={true} muted={true}/>}
+       <img onClick={() => setPlay(!play)} src={image} width="100%" className={Style.videoContainerImagePoster}/>
+      {!play && <div onClick={() => setPlay(!play)} className={Style.videoPlayIcon}>
+         <Icon base="fas" icon="fa-play"/>
+       </div>}
     </div>
 }
 

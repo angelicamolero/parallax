@@ -32,7 +32,23 @@ WithCarousel.defaultProps = {
   }
 }
 
-WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
+const CustomWigetTitle = (props: any) => {
+  console.log("CustomWigetTitle", props)
+  return <div style={{borderTop: '1px solid #0e0e0e', padding: '5px 0', borderBottom: '1px solid #0e0e0e'}}>
+          <h2 style={{margin: 0, textAlign: 'center'}}>{props?.label}</h2>
+        </div>
+}
+
+const CustomCopyRight = () => {
+  return <div style={{textAlign: 'center'}}>
+          <span style={{margin: 0, fontSize: 12}}>Desarrollado por Tekpro eCommerce</span>
+        </div>
+}
+
+WithCarousel.getSchema = ({ schemaName, useBackground }: WithCarouselProps) => {
+
+
+
   return {
     title: schemaName || "Slider tekpro",
     type: "object",
@@ -47,7 +63,7 @@ WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
         type: 'boolean',
         default: true
       },
-      height: {
+      ...useBackground ? {height: {
         title: 'alto en px (desktop)',
         type: 'number',
         default: 600
@@ -56,7 +72,7 @@ WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
         title: 'alto en px (mobile)',
         type: 'number',
         default: 400
-      },
+      }}: {},
       slides: {
         minItems: 0,
         title: 'Slider',
@@ -65,6 +81,13 @@ WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
           title: 'Slide',
           type: 'object',
           properties: {
+            titleImage: {
+              title: 'Imagen-Video',
+              type: 'string',
+              widget: {
+                'ui:widget': CustomWigetTitle
+              }
+            },
             useVideo: {
               title: 'Usar video',
               type: 'boolean',
@@ -73,7 +96,7 @@ WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
             videoLink: {
               title: 'Link video',
               type: 'string',
-              description: "Al cargar un video, se recomienda tambien cargar imagenes, esta se motrará mientras se carga el video"
+              description: "Al cargar un video, se recomienda tambien cargar imagenes, esta se motrará mientras se carga el video",
             },
             image: {
               title: 'Imagen',
@@ -89,6 +112,13 @@ WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
                 'ui:widget': 'image-uploader'
               }
             },
+            contentPosicionTitle: {
+              title: 'Posición del contenido',
+              type: 'string',
+              widget: {
+                'ui:widget': CustomWigetTitle
+              }
+            },
             contentGeneralPosition: {
               title: 'Posición del contenido',
               type: 'string',
@@ -99,14 +129,52 @@ WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
                 'left',
                 'right'
               ],
-              description: 'center'
+              description: 'center',
+              default: 'center'
             },
+            contentPosition: {
+              title: "Posición del botón y texto (desktop)",
+              type: "string",
+              enum: [
+                'Top-Left', 'Top-Center', 'Top-Right',
+                'Center-Left', 'Center-Center', 'Center-Right',
+                'Bottom-Left', 'Bottom-Center', 'Bottom-Right',
+              ],
+              default: "Center-Center"
+            },
+            contentPositionMobile: {
+              title: "Posición del botón y texto (mobile)",
+              type: "string",
+              enum: [
+                'Top-Left', 'Top-Center', 'Top-Right',
+                'Center-Left', 'Center-Center', 'Center-Right',
+                'Bottom-Left', 'Bottom-Center', 'Bottom-Right',
+              ],
+              default: "Center-Center"
+            },
+            contentAlign: {
+              title: 'Alineación del texto',
+              type: 'string',
+              enum: [
+                'left',
+                'center',
+                'right'
+              ],
+              default: 'left'
+            },
+            contentTitle: {
+              title: 'Contenido del slide',
+              type: 'string',
+              widget: {
+                'ui:widget': CustomWigetTitle
+              }
+            },
+            ...contentSchema,
             useHtml: {
               title: 'usar html',
               type: 'boolean'
             },
-            ...htmlSchema,
-            ...contentSchema
+            ...htmlSchema
           }
         }
       },
@@ -129,6 +197,13 @@ WithCarousel.getSchema = ({ schemaName }: WithCarouselProps) => {
             type: 'number',
             default: 1
           }
+        }
+      },
+      CopyRight: {
+        title: '',
+        type: 'string',
+        widget: {
+          'ui:widget': CustomCopyRight
         }
       }
     }

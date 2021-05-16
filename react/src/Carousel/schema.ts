@@ -71,26 +71,6 @@ export const contentSchema = {
         description: 'Si se usa el fondo transparente, el campo Fondo del botón, solo afectará el borde del botón'
       }
     }
-  },
-  contentPosition: {
-    title: "Posición del botón y texto (desktop)",
-    type: "string",
-    enum: [
-      'Top-Left', 'Top-Center', 'Top-Right',
-      'Center-Left', 'Center-Center', 'Center-Right',
-      'Bottom-Left', 'Bottom-Center', 'Bottom-Right',
-    ],
-    default: "Center-Center"
-  },
-  contentPositionMobile: {
-    title: "Posición del botón y texto (mobile)",
-    type: "string",
-    enum: [
-      'Top-Left', 'Top-Center', 'Top-Right',
-      'Center-Left', 'Center-Center', 'Center-Right',
-      'Bottom-Left', 'Bottom-Center', 'Bottom-Right',
-    ],
-    default: "Center-Center"
   }
 }
 
@@ -105,6 +85,17 @@ export const htmlSchema = {
   }
 }
 
+
+export const columnImage = {
+  title: 'Imagen',
+  type: 'object',
+  properties: {
+    image: {
+      title: 'Image',
+      type: 'string'
+    }
+  }
+}
 
 
 

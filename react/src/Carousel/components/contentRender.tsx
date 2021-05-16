@@ -3,12 +3,18 @@ import { SlidesProps } from '../interfaces';
 import Icon from 'tekpro.store-icons/Icons';
 import classNames from 'classnames';
 
-const ContentRender = ({ title, subTitle, text, button, goToPage }: SlidesProps) => {
+enum aling {
+    left= 'flex-start',
+    center='center',
+    right= 'flex-end'
+}
+
+const ContentRender = ({ title, subTitle, text, button, goToPage, contentAlign }: SlidesProps) => {
 
     const classesButton = classNames(Style.SlideDefaultRenderButton, button?.isTransparent && Style.buttonTransparent)
 
     return (
-        <div className={Style.SlideDefaultRenderContent}>
+        <div className={Style.SlideDefaultRenderContent} style={{textAlign: contentAlign, justifyContent: aling[contentAlign]}}>
         {title?.title && <h1 className={Style.SlideDefaultRenderTitle} style={{ color: title?.titleColor }}>{title?.title}</h1>}
         {subTitle?.title && <div className={Style.SlideDefaultRenderSubTitle} style={{ color: subTitle?.titleColor }}>{subTitle?.title}</div>}
         {text?.title && <p className={Style.SlideDefaultRenderText} style={{ color: text?.titleColor }}>{text?.title}</p>}

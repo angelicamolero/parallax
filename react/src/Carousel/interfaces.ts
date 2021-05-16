@@ -8,6 +8,10 @@ export type contentGeneralPosition = 'top' |
   'left' |
   'right'
 
+  export type textAlignPosition = 'center' |
+  'left' |
+  'right'
+
 export interface titleBase {
   title?: string;
   url?: string;
@@ -35,6 +39,7 @@ export interface SlidesProps {
   contentPosition?: contentPosition;
   contentPositionMobile?: contentPosition;
   contentGeneralPosition: contentGeneralPosition;
+  contentAlign?: textAlignPosition;
   goToPage?: (url: string) => void;
   heightB?: number;
   useBackground?: boolean;
