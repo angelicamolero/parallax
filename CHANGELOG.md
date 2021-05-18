@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.7.0] - 2021-05-18
+### Added
+- Add custom margin between slider
 
 ## [0.6.5] - 2021-05-15
 ### Fixed

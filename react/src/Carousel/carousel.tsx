@@ -16,7 +16,7 @@ const GENERAL_POSITION = {
   "center": Style.pCenter
 }
 
-const Carousel = ({ slides, height, heightMobile, sliderLayoutProps, isMobile, goToPage, blockClass, useBackground, autoplay, itemsPerPage }: WithCarouselProps) => {
+const Carousel = ({ slides, height, heightMobile, sliderLayoutProps, isMobile, goToPage, blockClass, useBackground, autoplay, itemsPerPage, margin }: WithCarouselProps) => {
 
   const classes = classNames(Style.tekproCarouselContainer, Style.tekproCarouselContainer + '--' + blockClass);
 
@@ -41,7 +41,7 @@ const Carousel = ({ slides, height, heightMobile, sliderLayoutProps, isMobile, g
         if (slide.useHtml) {
           return <HtmlRender key={index} html={slide.html} image={image} height={heightB} />
         }
-        return <div className={postionClasses}>
+        return <div className={postionClasses} style={{padding: !isMobile && ('0 ' + (margin / 2) + 'px')}}>
           {slide.useVideo ? <VideoRender {...slide} image={image} heightB={heightB} /> : <DefaultRender {...slide} goToPage={goToPage} useBackground={useBackground} image={image} contentPosition={contentPosition} height={heightB}/>}
           {slide.contentGeneralPosition && slide.contentGeneralPosition !== 'center' && <RenderContent {...slide} goToPage={goToPage} />}
         </div>

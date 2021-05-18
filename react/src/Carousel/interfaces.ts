@@ -63,6 +63,7 @@ export interface WithCarouselProps {
   useBackground?: boolean;
   autoplay?:boolean;
   itemsPerPage: IItemsPerPage
+  margin?: number
 }
 
 export interface HtmlRenderProps {

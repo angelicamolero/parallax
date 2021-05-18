@@ -199,6 +199,12 @@ WithCarousel.getSchema = ({ schemaName, useBackground }: WithCarouselProps) => {
           }
         }
       },
+      margin: {
+        title: "Separación",
+        type: 'number',
+        default: 0,
+        description: "Se aplicará en px y no se verá reflejado en mobile"
+      },
       CopyRight: {
         title: '',
         type: 'string',
