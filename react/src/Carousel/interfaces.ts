@@ -43,6 +43,7 @@ export interface SlidesProps {
   goToPage?: (url: string) => void;
   heightB?: number;
   useBackground?: boolean;
+  showVideoModal?: boolean;
 }
 
 export interface IItemsPerPage {

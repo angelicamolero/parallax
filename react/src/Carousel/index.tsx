@@ -33,7 +33,6 @@ WithCarousel.defaultProps = {
 }
 
 const CustomWigetTitle = (props: any) => {
-  console.log("CustomWigetTitle", props)
   return <div style={{borderTop: '1px solid #0e0e0e', padding: '5px 0', borderBottom: '1px solid #0e0e0e'}}>
           <h2 style={{margin: 0, textAlign: 'center'}}>{props?.label}</h2>
         </div>
@@ -90,6 +89,11 @@ WithCarousel.getSchema = ({ schemaName, useBackground }: WithCarouselProps) => {
             },
             useVideo: {
               title: 'Usar video',
+              type: 'boolean',
+              default: false
+            },
+            showVideoModal: {
+              title: 'Reproducir en emergente',
               type: 'boolean',
               default: false
             },

@@ -7,8 +7,9 @@ const WithNews = (props: NewsProps) => {
   const RuntimeContext = useRuntime();
   const isMobile = RuntimeContext?.deviceInfo?.isMobile;
 
-  const goToPage = useCallback((url: string) => {
-    window.location.href = url;
+  const goToPage = useCallback((url: string, openNewTab: boolean = false) => {
+    if (!openNewTab) window.location.href = url;
+    else window.open(url, '_blank');
   }, []);
   
   return useMemo(() => 
@@ -114,6 +115,11 @@ WithNews.getSchema = ({ schemaName, mode }: NewsProps) => {
             url: {
               title: "url",
               type: "string"
+            },
+            openNewTab: {
+              title: "Abrir en una nueva pestaña",
+              type: "boolean",
+              default: false
             },
             parallax: {
               title: "Efecto parallax",

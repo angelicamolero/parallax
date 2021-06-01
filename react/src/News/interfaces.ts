@@ -11,8 +11,9 @@ export interface INews {
   mode?: 'into' | 'out';
   buttonPosition: string;
   buttonPositionMobile: string;
-  goToPage: (url: string) => void;
+  goToPage: (url: string, openNewTab?: boolean) => void;
   useBackground?: boolean;
+  openNewTab?: boolean;
 }
 
 export interface NewsProps {
@@ -27,6 +28,7 @@ export interface NewsProps {
   viewModeMobile: number;
   gap: string;
   fr: string;
-  goToPage: (url: string) => void;
+  goToPage: (url: string, openNewTab?: boolean) => void;
   useBackground?: boolean;
+  openNewTab?: boolean;
 }

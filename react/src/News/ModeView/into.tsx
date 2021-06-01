@@ -16,7 +16,7 @@ const CLASSES_X = {
     Right: Style.newsFlexEnd,
 }
 
-const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, parallax, isMobile, imageMobile, buttonPosition, buttonPositionMobile, useBackground, url, goToPage }: INews) => {
+const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, parallax, isMobile, imageMobile, buttonPosition, buttonPositionMobile, useBackground, url, goToPage, openNewTab }: INews) => {
 
   const i = isMobile ? imageMobile : image;
   const classes = classnames(
@@ -36,7 +36,7 @@ const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, para
       >
         <div className={Style.newsImageTitle} style={{ color: titleColor }}>
           {__editorItemTitle}
-          <button className={Style.newsFooterButton} onClick={() => goToPage(url)}>{buttonLabel}</button>
+          <button className={Style.newsFooterButton} onClick={() => goToPage(url, openNewTab || false)}>{buttonLabel}</button>
         </div>
       </Parallax> :
         <>
@@ -44,7 +44,7 @@ const NewsItem = ({ image, __editorItemTitle, titleColor, buttonLabel, key, para
         <div className={classes} style={{ backgroundImage: useBackground && "url(" + i + ")", height: !useBackground && '100%', position: !useBackground ? 'absolute' : null, top: !useBackground && 0 }}>
           <div className={Style.newsImageTitle} style={{ color: titleColor }}>
             {__editorItemTitle}
-            <button className={Style.newsFooterButton} onClick={() => goToPage(url)}>{buttonLabel}</button>
+            <button className={Style.newsFooterButton} onClick={() => goToPage(url, openNewTab || false)}>{buttonLabel}</button>
           </div>
         </div>
         </>
