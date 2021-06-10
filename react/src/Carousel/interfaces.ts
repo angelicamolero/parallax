@@ -63,8 +63,9 @@ export interface WithCarouselProps {
   schemaName?: string;
   useBackground?: boolean;
   autoplay?:boolean;
-  itemsPerPage: IItemsPerPage
-  margin?: number
+  itemsPerPage: IItemsPerPage;
+  margin?: number;
+  useBoxShadow?: boolean;
 }
 
 export interface HtmlRenderProps {

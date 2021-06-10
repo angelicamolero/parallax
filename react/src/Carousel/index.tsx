@@ -25,6 +25,7 @@ WithCarousel.defaultProps = {
   slides: [],
   useBackground: true,
   autoplay: false,
+  useBoxShadow: false,
   itemsPerPage: {
     desktop: 1,
     tablet: 1,
@@ -61,6 +62,12 @@ WithCarousel.getSchema = ({ schemaName, useBackground }: WithCarouselProps) => {
         title: 'Usar imagenes como background',
         type: 'boolean',
         default: true
+      },
+      useBoxShadow: {
+        title: 'Resaltar',
+        type: 'boolean',
+        default: false,
+        description: 'Solo aplica para mobile'
       },
       ...useBackground ? {height: {
         title: 'alto en px (desktop)',

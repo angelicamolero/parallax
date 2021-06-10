@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+
+## [0.9.1] - 2021-06-10
+### Fixed
+- Fix design
+
 ## [0.9.0] - 2021-06-04
 ### Added
 - Add button link
