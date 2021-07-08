@@ -62,7 +62,9 @@ const Carousel = ({
             return <HtmlRender key={index} html={slide.html} image={image} height={heightB} />;
           }
           return (
-            <div className={postionClasses} style={{ padding: !isMobile && '0 ' + margin / 2 + 'px' }}>
+            <div className={postionClasses} style={{ padding: !isMobile && '0 ' + margin / 2 + 'px', cursor: slide?.button?.url ? 'pointer' : 'initial' }} onClick={() => {
+              goToPage(slide?.button?.url)
+            }}>
               {slide.useVideo ? (
                 <VideoRender {...slide} image={image} heightB={heightB} />
               ) : (

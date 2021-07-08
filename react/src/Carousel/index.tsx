@@ -8,7 +8,7 @@ const WithCarousel = (props: WithCarouselProps) => {
   const RuntimeContext = useRuntime();
   const isMobile = RuntimeContext?.deviceInfo?.isMobile
   const goToPage = useCallback((url: string) => {
-    window.location.href = url;
+    url ? window.location.href = url : null
   }, []);
   return useMemo(() => 
     <NoSSR>
