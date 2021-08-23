@@ -173,6 +173,15 @@ WithCarousel.getSchema = ({ schemaName, useBackground }: WithCarouselProps) => {
               ],
               default: 'left'
             },
+            contentAlignMobile: {
+              title: 'Alineación del texto (Mobile)',
+              type: 'string',
+              enum: [
+                'left',
+                'center',
+                'right'
+              ]
+            },
             contentTitle: {
               title: 'Contenido del slide',
               type: 'string',

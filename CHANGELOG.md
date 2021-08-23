@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.10.0] - 2021-08-23
+### Added
+- Add text align mobile
 
 ## [0.9.3] - 2021-07-08
 ### Fix

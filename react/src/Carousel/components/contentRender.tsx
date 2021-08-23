@@ -5,37 +5,74 @@ import classNames from 'classnames';
 import { Fragment } from 'react';
 
 enum aling {
-    left= 'flex-start',
-    center='center',
-    right= 'flex-end'
+  left = 'flex-start',
+  center = 'center',
+  right = 'flex-end'
 }
 
-const ContentRender = ({ title, subTitle, text, button, goToPage, contentAlign, contentGeneralPosition }: SlidesProps) => {
+const ContentRender = ({
+  title,
+  subTitle,
+  text,
+  button,
+  goToPage,
+  contentAlign,
+  contentGeneralPosition,
 
-    const classesButton = classNames(Style.SlideDefaultRenderButton, button?.isTransparent && Style.buttonTransparent)
+}: SlidesProps) => {
+  const classesButton = classNames(
+    Style.SlideDefaultRenderButton,
+    button?.isTransparent && Style.buttonTransparent
+  );
 
-    return title?.title || subTitle?.title || text?.title || button?.title ? (
-        <div 
-        className={Style.SlideDefaultRenderContent} 
-        style={{
-            textAlign: contentAlign,
-            justifyContent: contentGeneralPosition !== 'left' && contentGeneralPosition !== 'right' && aling[contentAlign],
-            alignItems: (contentGeneralPosition === 'left' || contentGeneralPosition === 'right') && aling[contentAlign]}}>
-        {title?.title && <h2 className={Style.SlideDefaultRenderTitle} style={{ color: title?.titleColor }}><div dangerouslySetInnerHTML={{__html:(title?.title || '')}}></div></h2>}
-        {subTitle?.title && <div className={Style.SlideDefaultRenderSubTitle} style={{ color: subTitle?.titleColor }}><div dangerouslySetInnerHTML={{__html:(subTitle?.title || '')}}></div></div>}
-        {text?.title && <p className={Style.SlideDefaultRenderText} style={{ color: text?.titleColor }}><div dangerouslySetInnerHTML={{__html:(text?.title || '')}}></div></p>}
-        {button?.title && <button onClick={() => goToPage(button?.url || '')} className={classesButton} style={{ 
+  return title?.title || subTitle?.title || text?.title || button?.title ? (
+    <div
+      className={Style.SlideDefaultRenderContent}
+      style={{
+        textAlign: contentAlign,
+        justifyContent:
+          contentGeneralPosition !== 'left' && contentGeneralPosition !== 'right' && aling[contentAlign],
+        alignItems:
+          (contentGeneralPosition === 'left' || contentGeneralPosition === 'right') && aling[contentAlign]
+      }}
+    >
+      {title?.title && (
+        <h2 className={Style.SlideDefaultRenderTitle} style={{ color: title?.titleColor }}>
+          <div dangerouslySetInnerHTML={{ __html: title?.title || '' }}></div>
+        </h2>
+      )}
+      {subTitle?.title && (
+        <div className={Style.SlideDefaultRenderSubTitle} style={{ color: subTitle?.titleColor }}>
+          <div dangerouslySetInnerHTML={{ __html: subTitle?.title || '' }}></div>
+        </div>
+      )}
+      {text?.title && (
+        <p className={Style.SlideDefaultRenderText} style={{ color: text?.titleColor }}>
+          <div dangerouslySetInnerHTML={{ __html: text?.title || '' }}></div>
+        </p>
+      )}
+      {button?.title && (
+        <button
+          onClick={() => goToPage(button?.url || '')}
+          className={classesButton}
+          style={{
             color: button?.titleColor,
-            background: button?.isTransparent ? 'transparent': button?.background,
+            background: button?.isTransparent ? 'transparent' : button?.background,
             border: button?.isTransparent && `1px solid ${button?.background}`,
-            marginLeft: (contentAlign == 'right' || contentAlign == 'center') ? 'auto' : 'initial',
-            marginRight: (contentAlign == 'left' || contentAlign == 'center') ? 'auto' : 'initial',
-            }}>
-            {button?.icon && button?.baseIcon && <Icon icon={button?.icon} base={button?.baseIcon} blockClass="icon-button-carousel" />}
-            {button?.title}
-        </button>}
+            marginLeft: contentAlign == 'right' || contentAlign == 'center' ? 'auto' : 'initial',
+            marginRight: contentAlign == 'left' || contentAlign == 'center' ? 'auto' : 'initial'
+          }}
+        >
+          {button?.icon && button?.baseIcon && (
+            <Icon icon={button?.icon} base={button?.baseIcon} blockClass="icon-button-carousel" />
+          )}
+          {button?.title}
+        </button>
+      )}
     </div>
-    ) : <Fragment/>
-}
+  ) : (
+    <Fragment />
+  );
+};
 
 export default ContentRender;

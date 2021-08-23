@@ -53,6 +53,7 @@ const Carousel = ({
           const image = isMobile ? slide.imageMobile : slide.image;
           const heightB = isMobile ? heightMobile : height;
           const contentPosition = isMobile ? slide.contentPositionMobile : slide.contentPosition;
+          const contentAlign = isMobile && slide.contentAlignMobile ? slide.contentAlignMobile : slide.contentAlign
           const postionClasses = classNames(
             Style.contentGenearlPosition,
             GENERAL_POSITION[slide.contentGeneralPosition]
@@ -75,10 +76,11 @@ const Carousel = ({
                   image={image}
                   contentPosition={contentPosition}
                   height={heightB}
+                  contentAlign={contentAlign}
                 />
               )}
               {slide.contentGeneralPosition && slide.contentGeneralPosition !== 'center' && (
-                <RenderContent {...slide} goToPage={goToPage} />
+                <RenderContent contentAlign={contentAlign} {...slide} goToPage={goToPage} />
               )}
             </div>
           );

@@ -40,6 +40,7 @@ export interface SlidesProps {
   contentPositionMobile?: contentPosition;
   contentGeneralPosition: contentGeneralPosition;
   contentAlign?: textAlignPosition;
+  contentAlignMobile?: textAlignPosition;
   goToPage?: (url: string) => void;
   heightB?: number;
   useBackground?: boolean;
