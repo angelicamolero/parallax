@@ -66,13 +66,21 @@ const VideoRender = ({ videoLink, image, showVideoModal }: any) => {
     <div ref={ref} className={Style.videoContainer}>
       {play && ComponentMode}
       <img
-        onClick={() => setPlay(!play)}
+        onClick={(e) => {
+          e.stopPropagation()
+          e.preventDefault()
+          setPlay(!play)
+        }}
         src={image}
         width="100%"
         className={Style.videoContainerImagePoster}
       />
       {!play && (
-        <div onClick={() => setPlay(!play)} className={Style.videoPlayIcon}>
+        <div onClick={(e) => {
+          e.stopPropagation()
+          e.preventDefault()
+          setPlay(!play)
+          }} className={Style.videoPlayIcon}>
           <Icon base="fas" icon="fa-play" />
         </div>
       )}
