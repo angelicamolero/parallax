@@ -7,9 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.11.2] - 2021-09-28
+### fixed
+- fix
+
+
 ## [0.11.1] - 2021-09-28
-### added
-- adde align option mobile
+### fixed
+- fixed
 
 ## [0.11.0] - 2021-09-20
 ### added

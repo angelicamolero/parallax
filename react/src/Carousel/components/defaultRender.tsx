@@ -17,7 +17,7 @@ const CLASSES_X = {
 
 const DefaultRender = (props: DefaultRenderProps) => {
 
-  const { height, image, contentPosition, contentGeneralPosition, useBackground, goToPage } = props;
+  const { height, image, contentPosition, contentGeneralPosition, useBackground, goToPage, contentAlign } = props;
 
   const classes = classnames(
     Style.SlideRender,
@@ -29,7 +29,7 @@ const DefaultRender = (props: DefaultRenderProps) => {
   return <>
     {!useBackground && <img className={Style.imageCarousel} src={image} />}
     <div className={classes} style={{ backgroundImage: useBackground && 'url(' + image + ')', height: useBackground && height, position: !useBackground ? 'absolute' : null, top: !useBackground ? '0' : null }}>
-      {(!contentGeneralPosition || contentGeneralPosition === 'center') && <ContentRender  {...props} goToPage={goToPage}/>}
+      {(!contentGeneralPosition || contentGeneralPosition === 'center') && <ContentRender  {...props} contentAlign={contentAlign} goToPage={goToPage}/>}
     </div>
   </>
 }

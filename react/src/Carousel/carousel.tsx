@@ -53,12 +53,11 @@ const Carousel = ({
           const image = isMobile ? slide.imageMobile : slide.image;
           const heightB = isMobile ? heightMobile : height;
           const contentPosition = isMobile ? slide.contentPositionMobile : slide.contentPosition;
-          const contentAlign = isMobile && slide.contentAlignMobile ? slide.contentAlignMobile : slide.contentAlign
+          const contentAlign = (isMobile && slide.contentAlignMobile) ? slide.contentAlignMobile : slide.contentAlign
           const postionClasses = classNames(
             Style.contentGenearlPosition,
             GENERAL_POSITION[slide.contentGeneralPosition]
           );
-
           if (slide.useHtml) {
             return <HtmlRender key={index} html={slide.html} image={image} height={heightB} />;
           }

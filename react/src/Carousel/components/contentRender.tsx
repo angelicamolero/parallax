@@ -18,7 +18,6 @@ const ContentRender = ({
   goToPage,
   contentAlign,
   contentGeneralPosition,
-
 }: SlidesProps) => {
   const classesButton = classNames(
     Style.SlideDefaultRenderButton,
@@ -59,8 +58,8 @@ const ContentRender = ({
             color: button?.titleColor,
             background: button?.isTransparent ? 'transparent' : button?.background,
             border: button?.isTransparent && `1px solid ${button?.background}`,
-            marginLeft: contentAlign == 'right' || contentAlign == 'center' ? 'auto' : 'initial',
-            marginRight: contentAlign == 'left' || contentAlign == 'center' ? 'auto' : 'initial'
+            marginLeft: (contentAlign == 'right' || contentAlign == 'center') ? 'auto' : 'initial',
+            marginRight: (contentAlign == 'left' || contentAlign == 'center') ? 'auto' : 'initial'
           }}
         >
           {button?.icon && button?.baseIcon && (
