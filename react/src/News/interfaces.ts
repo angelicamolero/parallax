@@ -14,6 +14,8 @@ export interface INews {
   goToPage: (url: string, openNewTab?: boolean) => void;
   useBackground?: boolean;
   openNewTab?: boolean;
+  align?: 'flex-start' | 'center' | 'flex-end'
+  alignMobile?: 'flex-start' | 'center' | 'flex-end'
 }
 
 export interface NewsProps {
@@ -31,4 +33,5 @@ export interface NewsProps {
   goToPage: (url: string, openNewTab?: boolean) => void;
   useBackground?: boolean;
   openNewTab?: boolean;
+  outType?: string
 }

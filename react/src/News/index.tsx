@@ -26,7 +26,7 @@ WithNews.defaultProps = {
   useBackground: false
 }
 
-WithNews.getSchema = ({ schemaName, mode }: NewsProps) => {
+WithNews.getSchema = ({ schemaName, mode , outType }: NewsProps) => {
   return {
     title: schemaName || 'Noticias',
     type: "object",
@@ -76,25 +76,27 @@ WithNews.getSchema = ({ schemaName, mode }: NewsProps) => {
               type: "string",
               default: "LEER MÁS"
             },
-            buttonPosition: {
-              title: "Posición del botón y texto (Desktop)",
-              type: "string",
-              enum: [
-                'Top-Left', 'Top-Center', 'Top-Right',
-                'Center-Left', 'Center-Center', 'Center-Right',
-                'Bottom-Left', 'Bottom-Center', 'Bottom-Right',
-              ],
-              default: "Center-Center"
-            },
-            buttonPositionMobile: {
-              title: "Posición del botón y texto (Mobile)",
-              type: "string",
-              enum: [
-                'Top-Left', 'Top-Center', 'Top-Right',
-                'Center-Left', 'Center-Center', 'Center-Right',
-                'Bottom-Left', 'Bottom-Center', 'Bottom-Right',
-              ],
-              default: "Center-Center"
+            ...outType !== 'all' && {
+              buttonPosition: {
+                title: "Posición del botón y texto (Desktop)",
+                type: "string",
+                enum: [
+                  'Top-Left', 'Top-Center', 'Top-Right',
+                  'Center-Left', 'Center-Center', 'Center-Right',
+                  'Bottom-Left', 'Bottom-Center', 'Bottom-Right',
+                ],
+                default: "Center-Center"
+              },
+              buttonPositionMobile: {
+                title: "Posición del botón y texto (Mobile)",
+                type: "string",
+                enum: [
+                  'Top-Left', 'Top-Center', 'Top-Right',
+                  'Center-Left', 'Center-Center', 'Center-Right',
+                  'Bottom-Left', 'Bottom-Center', 'Bottom-Right',
+                ],
+                default: "Center-Center"
+              },
             },
             image: {
               title: "Imagen para dekstop",
@@ -121,10 +123,41 @@ WithNews.getSchema = ({ schemaName, mode }: NewsProps) => {
               type: "boolean",
               default: false
             },
-            parallax: {
+            ...outType !== 'all' && {
+              parallax: {
               title: "Efecto parallax",
               type: "boolean",
               default: false
+            }},
+            ...outType === 'all' && {
+              align: {
+                title: 'Alinear texto',
+                type: 'string',
+                enumNames: [
+                  "left",
+                  "center",
+                  "right"
+                ],
+                enum: [
+                  "flex-start",
+                  "center",
+                  "flex-end"
+                ]
+              },
+              alignMobile: {
+                title: 'Alinear texto Mobile',
+                type: 'string',
+                enumNames: [
+                  "left",
+                  "center",
+                  "right"
+                ],
+                enum: [
+                  "flex-start",
+                  "center",
+                  "flex-end"
+                ]
+              }
             }
           }
         }
