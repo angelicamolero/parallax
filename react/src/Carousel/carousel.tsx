@@ -80,7 +80,7 @@ const Carousel = ({
                 />
               )}
               {slide.contentGeneralPosition && slide.contentGeneralPosition !== 'center' && (
-                <RenderContent contentAlign={contentAlign} {...slide} goToPage={goToPage} />
+                <RenderContent {...slide} contentAlign={contentAlign} goToPage={goToPage} />
               )}
             </div>
           );

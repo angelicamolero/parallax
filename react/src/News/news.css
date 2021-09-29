@@ -79,3 +79,9 @@ Button position
 .newsGeneralSubTitle {}
 
 .newImagen {}
+
+.newsFooterAllOut {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
