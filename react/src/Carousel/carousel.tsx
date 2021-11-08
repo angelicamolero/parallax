@@ -33,6 +33,7 @@ const Carousel = ({
   const classes = classNames(
     Style.tekproCarouselContainer,
     Style.tekproCarouselContainer + '--' + blockClass,
+    Style.tekproCarouselContainer + '--' + `slide-${itemsPerPage.desktop}`,
     useBoxShadow && Style.tekproCarouselContainerShadow
   );
 
