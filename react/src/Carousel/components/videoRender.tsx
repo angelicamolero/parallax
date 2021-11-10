@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import Video from 'tekpro.store-video/Video';
 import Style from '../carousel.css';
 import Icon from 'tekpro.store-icons/Icons';
@@ -26,13 +26,20 @@ const VideoModal = ({ videoLink, image }: any) => {
   );
 };
 
-const VideoRender = ({ videoLink, image, showVideoModal }: any) => {
+const VideoRender = ({ videoLink, image, showVideoModal, autplay, stopOut }: any) => {
+
+  console.log("autplay", autplay);
+
   const ref = useRef(null);
   const [play, setPlay] = useState(false);
 
+  useLayoutEffect(() => {
+    autplay && setTimeout(() => setPlay(autplay), 1000);
+  }, [autplay])
+
   useEffect(() => {
     function handleClickOutside(event: any) {
-      if (ref.current && !ref.current.contains(event.target)) {
+      if (ref.current && !ref.current.contains(event.target) && stopOut) {
         setPlay(false);
       }
     }
@@ -44,7 +51,7 @@ const VideoRender = ({ videoLink, image, showVideoModal }: any) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [ref]);
+  }, [ref, stopOut]);
 
   const ComponentMode = showVideoModal ? (
     <VideoModal videoLink={videoLink} image={image} />
@@ -63,7 +70,10 @@ const VideoRender = ({ videoLink, image, showVideoModal }: any) => {
   );
 
   return (
-    <div ref={ref} className={Style.videoContainer}>
+    <div ref={ref} className={Style.videoContainer} onClick={e => {
+      e.stopPropagation();
+      e.preventDefault();
+    }}>
       {play && ComponentMode}
       <img
         onClick={(e) => {

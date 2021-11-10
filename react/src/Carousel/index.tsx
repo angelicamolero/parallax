@@ -79,6 +79,10 @@ WithCarousel.getSchema = ({ schemaName, useBackground }: WithCarouselProps) => {
         type: 'number',
         default: 400
       }}: {},
+      maxWith: {
+        title: 'ancho máximo',
+        type: 'number'
+      },
       slides: {
         minItems: 0,
         title: 'Slider',
@@ -99,6 +103,16 @@ WithCarousel.getSchema = ({ schemaName, useBackground }: WithCarouselProps) => {
               type: 'boolean',
               default: false
             },
+            autplay: {
+              title: 'Reporducir video',
+              type: 'boolean',
+              default: false
+            },
+            stopOut: {
+              title: 'Detener de forma automática',
+              type: 'boolean',
+              default: true
+            }, 
             showVideoModal: {
               title: 'Reproducir en emergente',
               type: 'boolean',
