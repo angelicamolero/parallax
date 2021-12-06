@@ -67,6 +67,7 @@ export interface WithCarouselProps {
   itemsPerPage: IItemsPerPage;
   margin?: number;
   useBoxShadow?: boolean;
+  maxWith?: number;
 }
 
 export interface HtmlRenderProps {

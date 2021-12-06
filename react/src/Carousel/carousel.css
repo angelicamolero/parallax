@@ -49,7 +49,9 @@ Button position
     justify-content: flex-end;
 }
 
-.tekproCarouselContainer {}
+.tekproCarouselContainer {
+    margin: 0 auto;
+}
 
 .tekproCarouselContainerShadow {
 

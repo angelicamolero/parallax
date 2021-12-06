@@ -28,8 +28,12 @@ const Carousel = ({
   autoplay,
   itemsPerPage,
   margin,
-  useBoxShadow
+  useBoxShadow,
+  maxWith
 }: WithCarouselProps) => {
+
+
+
   const classes = classNames(
     Style.tekproCarouselContainer,
     Style.tekproCarouselContainer + '--' + blockClass,
@@ -48,7 +52,7 @@ const Carousel = ({
   }, [autoplay]);
 
   return (
-    <div className={classes}>
+    <div className={classes} style={{maxWidth: maxWith && maxWith}}>
       <SliderLayout {...sliderLayoutProps} autoplay={config} itemsPerPage={itemsPerPage}>
         {slides.map((slide, index) => {
           const image = isMobile ? slide.imageMobile : slide.image;
