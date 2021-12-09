@@ -71,7 +71,7 @@ const Carousel = ({
               goToPage(slide?.button?.url)
             }}>
               {slide.useVideo ? (
-                <VideoRender {...slide} image={image} heightB={heightB} />
+                <VideoRender {...slide} image={image} heightB={heightB} isMobile={isMobile}/>
               ) : (
                 <DefaultRender
                   {...slide}

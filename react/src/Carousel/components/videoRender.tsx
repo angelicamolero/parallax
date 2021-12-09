@@ -26,9 +26,9 @@ const VideoModal = ({ videoLink, image }: any) => {
   );
 };
 
-const VideoRender = ({ videoLink, image, showVideoModal, autplay, stopOut }: any) => {
+const VideoRender = ({ videoLink: videoDesktop, image, showVideoModal, autplay, stopOut, videoLinkMobile, isMobile }: any) => {
 
-  console.log("autplay", autplay);
+  const videoLink = isMobile ? videoLinkMobile || videoDesktop : videoDesktop
 
   const ref = useRef(null);
   const [play, setPlay] = useState(false);

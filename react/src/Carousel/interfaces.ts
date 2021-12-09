@@ -28,6 +28,7 @@ export interface buttonBase extends titleBase {
 export interface SlidesProps {
   useVideo: boolean;
   videoLink: string;
+  videoLinkMobile?: string;
   image: string;
   imageMobile: string;
   useHtml: boolean;

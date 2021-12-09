@@ -123,6 +123,11 @@ WithCarousel.getSchema = ({ schemaName, useBackground }: WithCarouselProps) => {
               type: 'string',
               description: "Al cargar un video, se recomienda tambien cargar imagenes, esta se motrará mientras se carga el video",
             },
+            videoLinkMobile: {
+              title: 'Link video (mobile)',
+              type: 'string',
+              description: "Al cargar un video, se recomienda tambien cargar imagenes, esta se motrará mientras se carga el video",
+            },
             image: {
               title: 'Imagen',
               type: 'string',

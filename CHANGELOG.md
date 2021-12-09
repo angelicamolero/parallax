@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.13.0] - 2021-12-08
+### Added
+- Add mobile video
+
+
 ## [0.12.0-0.12.1] - 2021-11-10
 ### fixed
 - fix
