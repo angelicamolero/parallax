@@ -4,11 +4,15 @@ import Style from '../carousel.css';
 import Icon from 'tekpro.store-icons/Icons';
 import { createPortal } from 'react-dom';
 
-const VideoModal = ({ videoLink, image }: any) => {
+const VideoModal = ({ videoLink, image, setPlay}: any) => {
+
+  const closeModal = (e:any) => {
+    setPlay(false);
+  }
   return createPortal(
     <div className={Style.videBackgroundModal}>
       <div className={Style.videoContainerModal}>
-        <span className={Style.videoCloseModal}><Icon base="fal" icon="fa-times"/></span>
+        <span className={Style.videoCloseModal} onClick={closeModal}><Icon base="fal" icon="fa-times"/></span>
         <Video
           autoPlay={true}
           src={videoLink}
@@ -54,7 +58,7 @@ const VideoRender = ({ videoLink: videoDesktop, image, showVideoModal, autplay, 
   }, [ref, stopOut]);
 
   const ComponentMode = showVideoModal ? (
-    <VideoModal videoLink={videoLink} image={image} />
+    <VideoModal videoLink={videoLink} image={image} setPlay={setPlay} />
   ) : (
     <Video
       autoPlay={true}
@@ -89,7 +93,7 @@ const VideoRender = ({ videoLink: videoDesktop, image, showVideoModal, autplay, 
         <div onClick={(e) => {
           e.stopPropagation()
           e.preventDefault()
-          setPlay(!play)
+          setPlay(true)
           }} className={Style.videoPlayIcon}>
           <Icon base="fas" icon="fa-play" />
         </div>
