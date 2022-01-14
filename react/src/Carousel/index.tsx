@@ -30,7 +30,8 @@ WithCarousel.defaultProps = {
     desktop: 1,
     tablet: 1,
     phone: 1
-  }
+  },
+  showNavigationArrows: 'mobileOnly'
 }
 
 const CustomWigetTitle = (props: any) => {
@@ -237,6 +238,17 @@ WithCarousel.getSchema = ({ schemaName, useBackground }: WithCarouselProps) => {
             default: 1
           }
         }
+      },
+      showNavigationArrows: {
+        title: 'Arrows',
+              type: 'string',
+              enum: [
+                'always',
+                'never',
+                'desktopOnly',
+                'mobileOnly'
+              ],
+              default: 'mobileOnly'
       },
       margin: {
         title: "Separación",

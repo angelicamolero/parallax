@@ -12,6 +12,8 @@ export type contentGeneralPosition = 'top' |
   'left' |
   'right'
 
+  export type showNavigationArrowsType = 'always' | 'never' | 'desktopOnly' | 'mobileOnly'
+
 export interface titleBase {
   title?: string;
   url?: string;
@@ -66,6 +68,7 @@ export interface WithCarouselProps {
   useBackground?: boolean;
   autoplay?:boolean;
   itemsPerPage: IItemsPerPage;
+  showNavigationArrows: showNavigationArrowsType;
   margin?: number;
   useBoxShadow?: boolean;
   maxWith?: number;

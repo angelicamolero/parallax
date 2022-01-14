@@ -27,6 +27,7 @@ const Carousel = ({
   useBackground,
   autoplay,
   itemsPerPage,
+  showNavigationArrows,
   margin,
   useBoxShadow,
   maxWith
@@ -53,7 +54,7 @@ const Carousel = ({
 
   return (
     <div className={classes} style={{maxWidth: maxWith && maxWith}}>
-      <SliderLayout {...sliderLayoutProps} autoplay={config} itemsPerPage={itemsPerPage}>
+      <SliderLayout {...sliderLayoutProps} showNavigationArrows={showNavigationArrows} autoplay={config} itemsPerPage={itemsPerPage}>
         {slides.map((slide, index) => {
           const image = isMobile ? slide.imageMobile : slide.image;
           const heightB = isMobile ? heightMobile : height;
